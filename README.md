@@ -10,6 +10,7 @@ A high-end, immersive 3D portfolio experience built with **React**, **Three.js**
 - **Scroll-Driven Storytelling**: Interactive "Car on Road" scene that responds to your scroll position.
 - **Multi-Page Architecture**: Seamless routing between Home, Projects, About, and Contact pages with Framer Motion transitions.
 - **Full SEO Optimization**: Meta tags, Open Graph previews, and JSON-LD structured data for search engine visibility.
+- **Animated Custom Cursor**: A premium, spring-animated pointer with trailing bokeh effects.
 - **Responsive Design**: Tailored for all devices using Tailwind CSS.
 - **Interactive UI**: Glassmorphic cards, neon-accented buttons, and smooth micro-animations.
 
