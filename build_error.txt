@@ -1,0 +1,113 @@
+﻿
+> portfolio-one-cyberspace@0.0.0 build
+> vite build
+
+[36mvite v8.0.5 [32mbuilding client environment for production...[36m[39m
+[2K
+transforming...Γ£ô 2674 modules transformed.
+rendering chunks...
+node.exe : [31mΓ£ù[39m Build failed in 1.58s
+At line:1 char:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program 
+Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([31mΓ£ù[39m  
+   Build failed in 1.58s:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+[31merror during build:
+[31mBuild failed with 2 errors:
+
+[31m[MISSING_EXPORT] Error:[0m "Github" is not exported 
+by "node_modules/lucide-react/dist/esm/lucide-react.js".
+   [38;5;246mΓò¡[0m[38;5;246mΓöÇ[0m[38;5;246m[[0m 
+src/App.jsx:2:38 [38;5;246m][0m
+   [38;5;246mΓöé[0m
+ [38;5;246m2 Γöé[0m [38;5;249mi[0m[38;5;249mm[0m[38;5
+;249mp[0m[38;5;249mo[0m[38;5;249mr[0m[38;5;249mt[0m[
+38;5;249m [0m[38;5;249m{[0m[38;5;249m [0m[38;5;249mT[
+0m[38;5;249me[0m[38;5;249mr[0m[38;5;249mm[0m[38;5;249
+mi[0m[38;5;249mn[0m[38;5;249ma[0m[38;5;249ml[0m[38;5
+;249m,[0m[38;5;249m [0m[38;5;249mC[0m[38;5;249mo[0m[
+38;5;249md[0m[38;5;249me[0m[38;5;249m2[0m[38;5;249m,[
+0m[38;5;249m [0m[38;5;249mC[0m[38;5;249mp[0m[38;5;249
+mu[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249mM[0m[38;5
+;249ma[0m[38;5;249mi[0m[38;5;249ml[0m[38;5;249m,[0m[
+38;5;249m [0mGithub[38;5;249m,[0m[38;5;249m [0m[38;5;2
+49mL[0m[38;5;249mi[0m[38;5;249mn[0m[38;5;249mk[0m[38
+;5;249me[0m[38;5;249md[0m[38;5;249mi[0m[38;5;249mn[0m
+[38;5;249m,[0m[38;5;249m [0m[38;5;249mE[0m[38;5;249mx
+[0m[38;5;249mt[0m[38;5;249me[0m[38;5;249mr[0m[38;5;2
+49mn[0m[38;5;249ma[0m[38;5;249ml[0m[38;5;249mL[0m[38
+;5;249mi[0m[38;5;249mn[0m[38;5;249mk[0m[38;5;249m 
+[0m[38;5;249m}[0m[38;5;249m [0m[38;5;249mf[0m[38;5;2
+49mr[0m[38;5;249mo[0m[38;5;249mm[0m[38;5;249m [0m[38
+;5;249m"[0m[38;5;249ml[0m[38;5;249mu[0m[38;5;249mc[0m
+[38;5;249mi[0m[38;5;249md[0m[38;5;249me[0m[38;5;249m-
+[0m[38;5;249mr[0m[38;5;249me[0m[38;5;249ma[0m[38;5;2
+49mc[0m[38;5;249mt[0m[38;5;249m"[0m[38;5;249m;[0m
+ [38;5;240m  Γöé[0m                                      
+ΓöÇΓöÇΓöÇΓö¼ΓöÇΓöÇ  
+ [38;5;240m  Γöé[0m                                       
+  Γò░ΓöÇΓöÇΓöÇΓöÇ Missing export
+[38;5;246mΓöÇΓöÇΓöÇΓò»[0m
+
+[31m[MISSING_EXPORT] Error:[0m "Linkedin" is not exported 
+by "node_modules/lucide-react/dist/esm/lucide-react.js".
+   [38;5;246mΓò¡[0m[38;5;246mΓöÇ[0m[38;5;246m[[0m 
+src/App.jsx:2:46 [38;5;246m][0m
+   [38;5;246mΓöé[0m
+ [38;5;246m2 Γöé[0m [38;5;249mi[0m[38;5;249mm[0m[38;5
+;249mp[0m[38;5;249mo[0m[38;5;249mr[0m[38;5;249mt[0m[
+38;5;249m [0m[38;5;249m{[0m[38;5;249m [0m[38;5;249mT[
+0m[38;5;249me[0m[38;5;249mr[0m[38;5;249mm[0m[38;5;249
+mi[0m[38;5;249mn[0m[38;5;249ma[0m[38;5;249ml[0m[38;5
+;249m,[0m[38;5;249m [0m[38;5;249mC[0m[38;5;249mo[0m[
+38;5;249md[0m[38;5;249me[0m[38;5;249m2[0m[38;5;249m,[
+0m[38;5;249m [0m[38;5;249mC[0m[38;5;249mp[0m[38;5;249
+mu[0m[38;5;249m,[0m[38;5;249m [0m[38;5;249mM[0m[38;5
+;249ma[0m[38;5;249mi[0m[38;5;249ml[0m[38;5;249m,[0m[
+38;5;249m [0m[38;5;249mG[0m[38;5;249mi[0m[38;5;249mt[
+0m[38;5;249mh[0m[38;5;249mu[0m[38;5;249mb[0m[38;5;249
+m,[0m[38;5;249m [0mLinkedin[38;5;249m,[0m[38;5;249m [
+0m[38;5;249mE[0m[38;5;249mx[0m[38;5;249mt[0m[38;5;249
+me[0m[38;5;249mr[0m[38;5;249mn[0m[38;5;249ma[0m[38;5
+;249ml[0m[38;5;249mL[0m[38;5;249mi[0m[38;5;249mn[0m[
+38;5;249mk[0m[38;5;249m [0m[38;5;249m}[0m[38;5;249m [
+0m[38;5;249mf[0m[38;5;249mr[0m[38;5;249mo[0m[38;5;249
+mm[0m[38;5;249m [0m[38;5;249m"[0m[38;5;249ml[0m[38;5
+;249mu[0m[38;5;249mc[0m[38;5;249mi[0m[38;5;249md[0m[
+38;5;249me[0m[38;5;249m-[0m[38;5;249mr[0m[38;5;249me[
+0m[38;5;249ma[0m[38;5;249mc[0m[38;5;249mt[0m[38;5;249
+m"[0m[38;5;249m;[0m
+ [38;5;240m  Γöé[0m                                       
+       ΓöÇΓöÇΓöÇΓöÇΓö¼ΓöÇΓöÇΓöÇ  
+ [38;5;240m  Γöé[0m                                       
+           Γò░ΓöÇΓöÇΓöÇΓöÇΓöÇ Missing export
+[38;5;246mΓöÇΓöÇΓöÇΓò»[0m
+[31m
+    at aggregateBindingErrorsIntoJsError (file:///C:/Users/A
+man%20Jai%20Singh/Desktop/upwrk/portfolio/portfolio-one-cybe
+rspace/node_modules/rolldown/dist/shared/error-BLhcSyeg.mjs:
+48:18)
+    at unwrapBindingResult (file:///C:/Users/Aman%20Jai%20Si
+ngh/Desktop/upwrk/portfolio/portfolio-one-cyberspace/node_mo
+dules/rolldown/dist/shared/error-BLhcSyeg.mjs:18:128)
+    at #build (file:///C:/Users/Aman%20Jai%20Singh/Desktop/u
+pwrk/portfolio/portfolio-one-cyberspace/node_modules/rolldow
+n/dist/shared/rolldown-build-CPrIX9V6.mjs:3313:34)
+    at async buildEnvironment (file:///C:/Users/Aman%20Jai%2
+0Singh/Desktop/upwrk/portfolio/portfolio-one-cyberspace/node
+_modules/vite/dist/node/chunks/node.js:32939:64)
+    at async Object.build (file:///C:/Users/Aman%20Jai%20Sin
+gh/Desktop/upwrk/portfolio/portfolio-one-cyberspace/node_mod
+ules/vite/dist/node/chunks/node.js:33361:19)
+    at async Object.buildApp (file:///C:/Users/Aman%20Jai%20
+Singh/Desktop/upwrk/portfolio/portfolio-one-cyberspace/node_
+modules/vite/dist/node/chunks/node.js:33358:153)
+    at async CAC.<anonymous> (file:///C:/Users/Aman%20Jai%20
+Singh/Desktop/upwrk/portfolio/portfolio-one-cyberspace/node_
+modules/vite/dist/node/cli.js:778:3) {
+  errors: [Getter/Setter]
+}[39m
