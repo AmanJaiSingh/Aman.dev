@@ -5,6 +5,7 @@ import { Suspense, lazy } from 'react'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import FixedCarScene from './components/FixedCarScene'
+import CustomCursor from './components/CustomCursor'
 
 const Home     = lazy(() => import('./pages/Home'))
 const Projects = lazy(() => import('./pages/Projects'))
@@ -26,6 +27,7 @@ function AppRoutes() {
   const location = useLocation()
   return (
     <>
+      <CustomCursor />
       <Navbar />
       {/* Fixed car scene on the right — visible on all pages */}
       <FixedCarScene />
