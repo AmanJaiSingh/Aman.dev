@@ -1,16 +1,53 @@
-# React + Vite
+# Cyberspace Portfolio 🚀
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A high-end, immersive 3D portfolio experience built with **React**, **Three.js**, and **GSAP**. Features a sleek cyberpunk aesthetic with glassmorphic UI elements and advanced particle systems.
 
-Currently, two official plugins are available:
+![Home Hero](screenshots/home_hero.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Features
 
-## React Compiler
+- **Advanced 3D Backgrounds**: Multi-layered parallax orb system with custom glowing shaders.
+- **Scroll-Driven Storytelling**: Interactive "Car on Road" scene that responds to your scroll position.
+- **Multi-Page Architecture**: Seamless routing between Home, Projects, About, and Contact pages with Framer Motion transitions.
+- **Full SEO Optimization**: Meta tags, Open Graph previews, and JSON-LD structured data for search engine visibility.
+- **Responsive Design**: Tailored for all devices using Tailwind CSS.
+- **Interactive UI**: Glassmorphic cards, neon-accented buttons, and smooth micro-animations.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+- **Frontend**: React 19, Vite, Tailwind CSS
+- **3D Engine**: Three.js, @react-three/fiber, @react-three/drei
+- **Animation**: GSAP, Framer Motion
+- **Icons**: Lucide React
+- **Routing**: React Router 7
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📸 Screenshots
+
+| Home (Services) | Projects Page |
+| :---: | :---: |
+| ![Services](screenshots/home_services.png) | ![Projects](screenshots/projects.png) |
+
+| About Me | Contact Page |
+| :---: | :---: |
+| ![About](screenshots/about.png) | ![Contact](screenshots/contact.png) |
+
+## 🚀 Getting Started
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/AmanJaiSingh/Aman.dev.git
+   ```
+
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+
+3. **Run the development server**:
+   ```bash
+   npm run dev
+   ```
+
+## 📄 License
+
+Designed & Built by **Aman Jai Singh**. Free to use for personal inspiration.
