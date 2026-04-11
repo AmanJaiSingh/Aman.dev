@@ -1,0 +1,30 @@
+UPWORK PROFILE OVERVIEW (BIO)
+Word Count: ~350 words (Well under the 600-word limit)
+
+FULL-STACK DEVELOPER | 3D WEB EXPERIENCES | REACT & TAILWIND SPECIALIST
+
+Are you looking for a developer who doesn't just build websites, but creates immersive digital experiences?
+
+I specialize in developing high-performance, visually stunning web applications using the latest modern technologies. My focus is on combining cutting-edge React 19 development with immersive 3D interactions and premium UI/UX design to help brands stand out in a crowded digital landscape.
+
+WHAT I BRING TO YOUR PROJECT:
+- Advanced React Development: Expert-level mastery of React 19, Vite, and performance-optimized state management.
+- Immersive 3D Experiences: Seamless integration of 3D objects and environments using Three.js and React Three Fiber (R3F).
+- Premium UI/UX Design: Sophisticated use of Tailwind CSS, Framer Motion, and Glassmorphism to create state-of-the-art interfaces.
+- Responsive & Performant: Every pixel is optimized for all devices, ensuring lightning-fast load times and fluid interactions.
+
+FEATURED PORTFOLIO PROJECTS:
+1. Cyberspace Portfolio: A futuristic, neon-themed 3D personal brand hub showcasing advanced React-Three-Fiber integration and high-performance neon UI components.
+2. NexaFlow SaaS Landing Page: A high-conversion SaaS analytics page featuring interactive CSS-parallax backgrounds and a sophisticated, multi-tier design system.
+3. Zenith Creative Studio: A bold, agency-style portfolio focusing on kinetic typography, geometric interactions, and an award-winning aesthetic.
+
+MY TECHNICAL TOOLKIT:
+- Languages: JavaScript (ES6+), HTML5, CSS3/PostCSS
+- Frameworks: React 19, Next.js, Vite
+- Styling: Tailwind CSS, CSS-in-JS, Responsive Design
+- Animation/3D: Three.js, React Three Fiber, Framer Motion, GSAP
+- Tools: Git, GitHub, NPM/Yarn, Figma-to-Code
+
+I am committed to clear communication, rapid delivery, and exceeding client expectations. Whether you need a sleek landing page or a complex 3D web application, I have the tools and the vision to bring your ideas to life.
+
+LET'S BUILD SOMETHING EXTRAORDINARY TOGETHER!

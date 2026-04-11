@@ -16,6 +16,8 @@ const SKILLS = [
 const TECH_ICONS = [Code2, Globe, Database, Layers, Server, Cpu, Zap]
 
 const TIMELINE = [
+  { year: '2025–2026',    title: 'Personal Projects',              org: 'Personal',              desc: 'Building innovative personal projects to explore new dimensions of web development.' },
+  { year: '2025',         title: 'MotoParts Project',              org: 'Full-Stack Developer',  desc: 'Developed a comprehensive full-stack e-commerce platform for motorcycle parts.' },
   { year: '2024–Present', title: 'Freelance Full-Stack Developer', org: 'Self-employed / Upwork', desc: 'Building bespoke web applications and 3D experiences for international clients.' },
   { year: '2023',         title: 'Frontend Developer',             org: 'Contract Projects',     desc: 'Delivered multiple high-conversion landing pages and SaaS dashboards.' },
   { year: '2022',         title: 'Started Web Development',        org: 'Self-taught',           desc: 'Deep-dived into React, Three.js, and the modern JS ecosystem.' },

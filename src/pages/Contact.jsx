@@ -63,8 +63,8 @@ export default function Contact() {
             className="lg:col-span-2 space-y-8"
           >
             {[
-              { icon: Mail,    label: 'Email',    value: 'hello@amandev.in' },
-              { icon: Phone,   label: 'WhatsApp', value: '+91 XXXXX XXXXX' },
+              { icon: Mail,    label: 'Email',    value: 'amanjaisingh1111@gmail.com' },
+              { icon: Phone,   label: 'WhatsApp', value: '9045122383' },
               { icon: MapPin,  label: 'Location', value: 'India (Remote Worldwide)' },
             ].map(({ icon: Icon, label, value }) => (
               <div key={label} className="flex items-start gap-4">

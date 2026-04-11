@@ -1,0 +1,19 @@
+UPWORK PORTFOLIO DESCRIPTIONS
+
+Project 1: Cyberspace (Futuristic/Cyberpunk Portfolio)
+- 01_Cyberspace_Portfolio.png: Premium mockup thumbnail featuring a laptop and mobile view of the "Cyberspace" futuristic React portfolio with neon cyberpunk styling and 3D background elements.
+- 01_Cyberspace_Normal_SS.png: High-resolution hero section screenshot showing the bold "Hello. I'm Aman" headline over an immersive, high-tech neon background.
+- 01_Cyberspace_Projects.png: Detailed screenshot of the project showcase grid, displaying clean cards on a futuristic dark-themed UI.
+- 01_Cyberspace_Footer.png: Polished contact and footer section showcasing minimalist glass-styled links and professional social integration.
+
+Project 2: NexaFlow (Modern SaaS Analytics)
+- 02_NexaFlow_SaaS.png: Professional mockup thumbnail for "NexaFlow" SaaS landing page, illustrating the responsive layout on desktop and mobile with deep indigo/violet gradients.
+- 02_NexaFlow_Normal_SS.png: Direct screenshot of the hero section featuring the "Analytics that think ahead" headline and interactive floating orbs.
+- 02_NexaFlow_Features.png: Comprehensive features overview section highlighting the platform's key analytical and security capabilities with modern layouts.
+- 02_NexaFlow_Footer.png: Detailed pricing cards and "Ready to unlock your data's potential" call-to-action section on a sleek dark-mode background.
+
+Project 3: Zenith (Creative Agency Studio)
+- 03_Zenith_Agency.png: High-impact mockup thumbnail for "Zenith Creative Studio", featuring bold typography and warm orange/pink geometric floating shapes across devices.
+- 03_Zenith_Normal_SS.png: Professional hero section screenshot showing the "We craft bold digital experiences" headline with sharp, award-winning branding.
+- 03_Zenith_Work.png: Selected work portfolio section displaying premium project showcase cards with smooth hover states and high-quality visuals.
+- 03_Zenith_Footer.png: Services and contact hub showing agency offerings like Branding and UI/UX design with a minimalist, high-end feel.
