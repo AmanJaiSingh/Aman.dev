@@ -2,10 +2,10 @@ import { Code2, Briefcase, Mail, MessageCircle, Zap } from 'lucide-react'
 import { NavLink } from 'react-router-dom'
 
 const SOCIALS = [
-  { icon: Code2,         href: 'https://github.com/amanjai',    label: 'GitHub'   },
-  { icon: Briefcase,     href: 'https://linkedin.com',          label: 'LinkedIn' },
-  { icon: MessageCircle, href: 'https://twitter.com',           label: 'Twitter'  },
-  { icon: Mail,          href: 'mailto:hello@amandev.in',       label: 'Email'    },
+  { icon: Code2, href: 'https://github.com/amanjaisingh', label: 'GitHub' },
+  { icon: Briefcase, href: 'https://linkedin.com/in/aman-jai-singh', label: 'LinkedIn' },
+  { icon: MessageCircle, href: '#', label: 'Twitter' },
+  { icon: Mail, href: 'mailto:amanjaisingh1111@gmail.com', label: 'Email' },
 ]
 
 export default function Footer() {

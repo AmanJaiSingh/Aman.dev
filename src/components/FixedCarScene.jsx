@@ -22,7 +22,8 @@ export default function FixedCarScene() {
     const maxY   = trackH - carH
     const scrollMax = document.documentElement.scrollHeight - window.innerHeight
     const progress  = scrollMax > 0 ? window.scrollY / scrollMax : 0
-    car.style.top = `${progress * maxY}px`
+    // Use translate3d for GPU acceleration and prevent layout thrashing
+    car.style.transform = `translate3d(-50%, ${progress * maxY}px, 0)`
   }, [])
 
   /* ── sync car position when user scrolls ── */
@@ -151,7 +152,7 @@ export default function FixedCarScene() {
             position:    'absolute',
             left:        '50%',
             top:         0,
-            transform:   'translateX(-50%)',
+            transform:   'translate3d(-50%, 0, 0)',
             width:       '18px',
             height:      '34px',
             cursor:      'grab',

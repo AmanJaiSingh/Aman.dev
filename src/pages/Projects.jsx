@@ -3,15 +3,17 @@ import { motion, useInView } from 'framer-motion'
 import { Filter } from 'lucide-react'
 import ProjectCard from '../components/ProjectCard'
 import { PROJECTS } from '../data'
+import { useLanguage } from '../context/LanguageContext'
 
 const CATS = ['All', 'Frontend / 3D', 'Full-Stack', 'SaaS / Dashboard', 'Frontend / Marketing', 'Business / Corporate', 'Full-Stack / Admin']
 
 export default function Projects() {
+  const { language } = useLanguage()
   const [active, setActive] = useState('All')
   const ref = useRef(null)
   const inView = useInView(ref, { once: true })
 
-  const filtered = active === 'All' ? PROJECTS : PROJECTS.filter((p) => p.category === active)
+  const filtered = active === 'All' || active === 'Sab Kuch' ? PROJECTS : PROJECTS.filter((p) => p.category === active)
 
   return (
     <div className="page-enter min-h-screen pt-28 pb-20 px-6 md:px-16 lg:px-24">
@@ -22,7 +24,7 @@ export default function Projects() {
             initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}}
             className="section-label mb-3"
           >
-            Portfolio
+             Portfolio
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -30,7 +32,11 @@ export default function Projects() {
             transition={{ delay: 0.1 }}
             className="display-heading text-5xl md:text-6xl mb-4"
           >
-            All <span className="neon-text-cyan">Projects</span>
+            {language === 'en' ? (
+              <>All <span className="neon-text-cyan">Projects</span></>
+            ) : (
+              <>Saare <span className="neon-text-cyan">Projects</span></>
+            )}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ delay: 0.2 }}
@@ -40,7 +46,6 @@ export default function Projects() {
           </motion.p>
         </div>
 
-        {/* Filter bar */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -48,19 +53,22 @@ export default function Projects() {
           className="flex items-center gap-2 flex-wrap mb-12"
         >
           <Filter className="w-4 h-4 text-gray-500 mr-1" />
-          {CATS.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActive(cat)}
-              className={`text-xs font-mono uppercase tracking-wider px-4 py-2 rounded-full border transition-all duration-200 ${
-                active === cat
-                  ? 'border-cyber-accent text-cyber-accent bg-cyber-accent/10'
-                  : 'border-white/10 text-gray-500 hover:border-white/30 hover:text-white'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
+          {CATS.map((cat) => {
+            const label = cat === 'All' && language === 'hin' ? 'Sab Kuch' : cat;
+            return (
+              <button
+                key={cat}
+                onClick={() => setActive(cat === 'All' && language === 'hin' ? 'Sab Kuch' : cat)}
+                className={`text-xs font-mono uppercase tracking-wider px-4 py-2 rounded-full border transition-all duration-200 ${
+                  active === cat || active === label
+                    ? 'border-cyber-accent text-cyber-accent bg-cyber-accent/10'
+                    : 'border-white/10 text-gray-500 hover:border-white/30 hover:text-white'
+                }`}
+              >
+                {label}
+              </button>
+            )
+          })}
         </motion.div>
 
         {/* Grid */}

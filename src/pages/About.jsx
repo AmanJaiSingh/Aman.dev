@@ -1,6 +1,8 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { Download, MapPin, Coffee, Zap, Code2, Globe, Database, Layers, Server, Cpu } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { useLanguage } from '../context/LanguageContext'
 
 const SKILLS = [
   { label: 'React / Next.js',   pct: 95, color: '#00f0ff' },
@@ -46,6 +48,7 @@ function SkillBar({ label, pct, color, delay }) {
 }
 
 export default function About() {
+  const { language } = useLanguage()
   const ref = useRef(null)
   const inView = useInView(ref, { once: true })
 
@@ -56,13 +59,17 @@ export default function About() {
         {/* Header */}
         <div ref={ref} className="mb-20">
           <motion.p initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} className="section-label mb-3">
-            Who I Am
+            {language === 'en' ? 'Who I Am' : 'Bhai Kaun Hai?'}
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.1 }}
             className="display-heading text-5xl md:text-6xl mb-4"
           >
-            About <span className="neon-text-purple">Me</span>
+            {language === 'en' ? (
+              <>About <span className="neon-text-purple">Me</span></>
+            ) : (
+              <>Mera <span className="neon-text-purple">Intro</span></>
+            )}
           </motion.h1>
         </div>
 
@@ -70,19 +77,37 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24">
           {/* Bio */}
           <motion.div initial={{ opacity: 0, x: -30 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ delay: 0.2 }}>
-            <p className="text-gray-300 leading-relaxed mb-5 text-lg">
-              Hey! I'm <span className="neon-text-cyan font-semibold">Aman Jai Singh</span>, a passionate Full-Stack Developer from India who builds exceptional digital experiences at the intersection of code and artistry.
-            </p>
-            <p className="text-gray-400 leading-relaxed mb-5">
-              I specialise in crafting immersive web applications — from blazing-fast Next.js platforms and interactive 3D experiences with Three.js, to scalable back-end APIs. I care deeply about every pixel and every millisecond of performance.
-            </p>
-            <p className="text-gray-400 leading-relaxed mb-8">
-              When I'm not building for clients, I'm experimenting with WebGL shaders, GSAP scroll choreography, or finding new ways to make the web feel alive.
-            </p>
+            {language === 'en' ? (
+              <>
+                <p className="text-gray-300 leading-relaxed mb-5 text-lg">
+                  Hey! I'm <span className="neon-text-cyan font-semibold">Aman Jai Singh</span>, a Full-Stack Developer from India who turns excessive amounts of caffeine and chaotic ideas into polished digital experiences.
+                </p>
+                <p className="text-gray-400 leading-relaxed mb-5">
+                  I specialise in crafting immersive web applications — from blazing-fast Next.js platforms to interactive 3D experiences. I care deeply about every pixel, every millisecond of performance, and ensuring things don't spontaneously combust in production.
+                </p>
+                <p className="text-gray-400 leading-relaxed mb-8">
+                  When I'm not building for clients, I'm experimenting with WebGL shaders, fixing bugs I created yesterday, or finding new ways to make the web feel alive.
+                </p>
+              </>
+            ) : (
+              <>
+                <p className="text-gray-300 leading-relaxed mb-5 text-lg">
+                  Hey! Mai hoon <span className="neon-text-cyan font-semibold">Aman Jai Singh</span>. Main ek desi Full-Stack Developer hoon jo caffeine pee pee ke tumhari chaotic ideas ko solid web apps me badal deta hai.
+                </p>
+                <p className="text-gray-400 leading-relaxed mb-5">
+                  Mera scene simple hai: Next.js ki speed aur Three.js ka jalwa mila kar main aisi sites banata hoon jo kabhi down nahi hoti. Production me lag nahi lagega, baat paki.
+                </p>
+                <p className="text-gray-400 leading-relaxed mb-8">
+                  Jab main clients ka kaam nahi kar raha hota, main WebGL me aag lagane ka try karta hoon aur kal waale bugs theek karta hoon chup karke.
+                </p>
+              </>
+            )}
 
             <div className="flex flex-wrap gap-4 text-sm font-mono text-gray-500 mb-8">
               <span className="flex items-center gap-1"><MapPin className="w-3.5 h-3.5 text-cyber-accent" /> India</span>
-              <span className="flex items-center gap-1"><Coffee className="w-3.5 h-3.5 text-cyber-purple" /> Coffee fuelled</span>
+              <Link to="/coffee" className="flex items-center gap-1 hover:text-cyber-purple transition-colors cursor-pointer" title="Need a break?">
+                <Coffee className="w-3.5 h-3.5 text-cyber-purple" /> Coffee fuelled
+              </Link>
               <span className="flex items-center gap-1"><Zap className="w-3.5 h-3.5 text-cyber-accent" /> Open to work</span>
             </div>
 
@@ -127,7 +152,9 @@ export default function About() {
 
         {/* Timeline */}
         <div>
-          <h2 className="display-heading text-3xl mb-10 neon-text-purple">Journey</h2>
+          <h2 className="display-heading text-3xl mb-10 neon-text-purple">
+            {language === 'en' ? 'Journey' : 'Safar'}
+          </h2>
           <div className="relative pl-8 border-l border-white/10">
             {TIMELINE.map((item, i) => (
               <motion.div

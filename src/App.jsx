@@ -6,11 +6,13 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import FixedCarScene from './components/FixedCarScene'
 import CustomCursor from './components/CustomCursor'
+import { LanguageProvider } from './context/LanguageContext'
 
 const Home     = lazy(() => import('./pages/Home'))
 const Projects = lazy(() => import('./pages/Projects'))
 const About    = lazy(() => import('./pages/About'))
 const Contact  = lazy(() => import('./pages/Contact'))
+const Coffee   = lazy(() => import('./pages/Coffee'))
 
 function PageLoader() {
   return (
@@ -41,6 +43,7 @@ function AppRoutes() {
               <Route path="/projects" element={<Projects />} />
               <Route path="/about"    element={<About />}    />
               <Route path="/contact"  element={<Contact />}  />
+              <Route path="/coffee"   element={<Coffee />}   />
             </Routes>
           </AnimatePresence>
         </Suspense>
@@ -52,8 +55,10 @@ function AppRoutes() {
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <AppRoutes />
-    </BrowserRouter>
+    <LanguageProvider>
+      <BrowserRouter>
+        <AppRoutes />
+      </BrowserRouter>
+    </LanguageProvider>
   )
 }

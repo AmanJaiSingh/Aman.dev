@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import CyberBackground from '../components/CyberBackground'
 import ProjectCard from '../components/ProjectCard'
 import { PROJECTS, SERVICES, PRICING } from '../data'
+import { useLanguage } from '../context/LanguageContext'
 
 /* ─── Animated counter ── */
 function Counter({ target, suffix = '' }) {
@@ -27,6 +28,7 @@ function Counter({ target, suffix = '' }) {
 
 /* ─── Hero Section ── */
 function Hero() {
+  const { language } = useLanguage()
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
   useEffect(() => {
     const move = (e) => setMousePos({ x: e.clientX / window.innerWidth - 0.5, y: e.clientY / window.innerHeight - 0.5 })
@@ -65,22 +67,29 @@ function Hero() {
           transition={{ delay: 0.2, duration: 0.7 }}
           className="display-heading text-5xl md:text-7xl lg:text-8xl leading-[1.05] mb-6"
         >
-          Hi, I'm{' '}
-          <span
-            className="inline-block neon-text-cyan"
-            style={{ textShadow: '0 0 30px rgba(0,240,255,0.5)' }}
-          >
-            Aman
-          </span>
-          <br />
-          <span className="text-gray-400 text-4xl md:text-5xl lg:text-6xl font-normal font-sans">
-            I build things for the
-          </span>
-          <br />
-          <span className="bg-clip-text text-transparent"
-            style={{ backgroundImage: 'linear-gradient(90deg, #00f0ff, #b026ff)' }}>
-            digital realm.
-          </span>
+          {language === 'en' ? (
+            <>
+              I build websites that <br />
+              <span className="bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(90deg, #00f0ff, #b026ff)' }}>
+                actually work.
+              </span>
+              <br />
+              <span className="text-gray-400 text-xl md:text-2xl font-mono mt-4 block">
+                I turn coffee into code and code into 🔥. Close your other tabs—you've found the right developer.
+              </span>
+            </>
+          ) : (
+            <>
+              Sites aisi jo <br />
+              <span className="bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(90deg, #00f0ff, #b026ff)' }}>
+                makkhan chalein.
+              </span>
+              <br />
+              <span className="text-gray-400 text-xl md:text-2xl font-mono mt-4 block">
+                Code kaisa jo servers hila de, aur designs aise jo dimaag hila dein. 🚀
+              </span>
+            </>
+          )}
         </motion.h1>
 
         <motion.p
@@ -89,7 +98,10 @@ function Hero() {
           transition={{ delay: 0.4 }}
           className="text-gray-400 text-lg max-w-xl leading-relaxed mb-10"
         >
-          I design and build exceptional web experiences — from immersive 3D interfaces to high-conversion e-commerce stores. Let's create something extraordinary.
+          {language === 'en' 
+            ? "I design and build web experiences that won't make your users hate you. From immersive 3D interfaces to scalable backends, I write clean code so you don't have to."
+            : "Coffee peeta hoon aur production bugs dho daalta hoon. Pura desi jugad meets global standards. Ek baar kaam dekh lo, baaki tabs khud hi band kar doge."
+          }
         </motion.p>
 
         <motion.div
@@ -115,7 +127,7 @@ function Hero() {
         >
           {[
             { label: 'Projects Delivered', value: 20, suffix: '+' },
-            { label: 'Happy Clients',      value: 15, suffix: '+' },
+            { label: 'Bugs Fixed (Eventually)', value: 99, suffix: '+' },
             { label: 'Technologies Used',  value: 12, suffix: '+' },
           ].map((s) => (
             <div key={s.label}>
@@ -143,6 +155,7 @@ function Hero() {
 
 /* ─── Services Section ── */
 function Services() {
+  const { language } = useLanguage()
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
   const ICONS = { '🌐': Globe, '🛒': Zap, '⚡': Code2, '🎮': Cpu }
@@ -155,7 +168,7 @@ function Services() {
             initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}}
             className="section-label mb-3"
           >
-            What I do
+            {language === 'en' ? 'What I do' : 'Mera Kaam'}
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -163,7 +176,11 @@ function Services() {
             transition={{ delay: 0.1 }}
             className="display-heading text-4xl md:text-5xl"
           >
-            Services I <span className="neon-text-purple">Offer</span>
+            {language === 'en' ? (
+              <>Services I <span className="neon-text-purple">Offer</span></>
+            ) : (
+              <>Services Jo Mai <span className="neon-text-purple">Deta Hoon</span></>
+            )}
           </motion.h2>
         </div>
 
@@ -183,11 +200,15 @@ function Services() {
                     style={{ background: 'rgba(0,240,255,0.08)', border: '1px solid rgba(0,240,255,0.15)' }}>
                     <Icon className="w-5 h-5 text-cyber-accent" />
                   </div>
-                  <h3 className="font-display font-semibold text-xl group-hover:text-cyber-accent transition-colors">{svc.title}</h3>
+                  <h3 className="font-display font-semibold text-xl group-hover:text-cyber-accent transition-colors">
+                    {language === 'en' ? svc.title : svc.titleHin}
+                  </h3>
                 </div>
-                <p className="text-gray-400 text-sm leading-relaxed mb-5">{svc.description}</p>
+                <p className="text-gray-400 text-sm leading-relaxed mb-5">
+                  {language === 'en' ? svc.description : svc.descriptionHin}
+                </p>
                 <ul className="space-y-2">
-                  {svc.features.map((f) => (
+                  {(language === 'en' ? svc.features : svc.featuresHin).map((f) => (
                     <li key={f} className="flex items-center gap-2 text-sm text-gray-300">
                       <CheckCircle className="w-3.5 h-3.5 text-cyber-accent shrink-0" />
                       {f}
@@ -205,6 +226,7 @@ function Services() {
 
 /* ─── Featured Projects Section ── */
 function FeaturedProjects() {
+  const { language } = useLanguage()
   const featured = PROJECTS.filter((p) => p.featured)
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
@@ -215,7 +237,7 @@ function FeaturedProjects() {
         <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
             <motion.p initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} className="section-label mb-3">
-              selected work
+              {language === 'en' ? 'selected work' : 'chune huye kaam'}
             </motion.p>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
@@ -223,12 +245,16 @@ function FeaturedProjects() {
               transition={{ delay: 0.1 }}
               className="display-heading text-4xl md:text-5xl"
             >
-              Featured <span className="neon-text-cyan">Projects</span>
+              {language === 'en' ? (
+                <>Featured <span className="neon-text-cyan">Projects</span></>
+              ) : (
+                <>Khass <span className="neon-text-cyan">Projects</span></>
+              )}
             </motion.h2>
           </div>
           <motion.div initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ delay: 0.3 }}>
             <Link to="/projects" className="cyber-btn inline-flex items-center gap-2 text-xs py-2 px-5">
-              View All <ChevronRight className="w-3 h-3" />
+              {language === 'en' ? 'View All' : 'Pura Dekho'} <ChevronRight className="w-3 h-3" />
             </Link>
           </motion.div>
         </div>
@@ -243,6 +269,7 @@ function FeaturedProjects() {
 
 /* ─── Pricing Section ── */
 function Pricing() {
+  const { language } = useLanguage()
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
 
@@ -251,7 +278,7 @@ function Pricing() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <motion.p initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} className="section-label mb-3">
-            Transparent pricing
+            {language === 'en' ? 'Transparent pricing' : 'Pura Khula Hisaab'}
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -259,14 +286,20 @@ function Pricing() {
             transition={{ delay: 0.1 }}
             className="display-heading text-4xl md:text-5xl mb-4"
           >
-            Investment <span className="neon-text-purple">&amp; Costs</span>
+            {language === 'en' ? (
+              <>Investment <span className="neon-text-purple">&amp; Costs</span></>
+            ) : (
+              <>Kharcha <span className="neon-text-purple">Pani</span></>
+            )}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ delay: 0.2 }}
             className="text-gray-400 max-w-xl mx-auto text-sm flex items-center justify-center gap-2"
           >
             <Info className="w-4 h-4 text-cyber-accent shrink-0" />
-            Making &amp; Hosting costs are separate — hosting is paid by the client to the provider directly.
+            {language === 'en' 
+              ? 'Making & Hosting costs are separate — hosting is paid by the client to the provider directly.'
+              : 'Banane ka alag, chalane ka alag — hosting ka bill client domain provider ko dega.'}
           </motion.p>
         </div>
 
@@ -287,28 +320,30 @@ function Pricing() {
                 </div>
               )}
 
-              <h3 className="font-display font-bold text-xl mb-1">{plan.name}</h3>
-              <p className="text-gray-500 text-xs mb-6 leading-relaxed">{plan.description}</p>
+              <h3 className="font-display font-bold text-xl mb-1">{language === 'en' ? plan.name : plan.nameHin}</h3>
+              <p className="text-gray-500 text-xs mb-6 leading-relaxed">{language === 'en' ? plan.description : plan.descriptionHin}</p>
 
               {/* Making cost */}
               <div className="mb-3 pb-3 border-b border-white/5">
-                <p className="text-gray-500 text-[10px] uppercase tracking-wider mb-1">Making Cost (One-time)</p>
+                <p className="text-gray-500 text-[10px] uppercase tracking-wider mb-1">
+                  {language === 'en' ? 'Making Cost (One-time)' : 'Bananay ka Kharcha'}
+                </p>
                 <p className="font-display font-bold text-3xl text-cyber-accent">{plan.makingCost}</p>
               </div>
 
               {/* Hosting cost */}
               <div className="mb-6">
                 <p className="text-gray-500 text-[10px] uppercase tracking-wider mb-1 flex items-center gap-1">
-                  Hosting Cost <Info className="w-3 h-3" /> <span className="normal-case font-sans">(Paid by client)</span>
+                  {language === 'en' ? 'Hosting Cost' : 'Chalane ka Kharcha'} <Info className="w-3 h-3" /> <span className="normal-case font-sans">{language === 'en' ? '(Paid by client)' : '(Client bharega)'}</span>
                 </p>
                 <p className="font-display font-bold text-2xl text-cyber-purple">
                   {plan.hostingCost}
-                  <span className="text-sm text-gray-500 font-sans font-normal ml-1">{plan.hostingNote}</span>
+                  <span className="text-sm text-gray-500 font-sans font-normal ml-1">{language === 'en' ? plan.hostingNote : plan.hostingNoteHin}</span>
                 </p>
               </div>
 
               <ul className="space-y-3 flex-1">
-                {plan.features.map((f) => (
+                {(language === 'en' ? plan.features : plan.featuresHin).map((f) => (
                   <li key={f} className="flex items-start gap-2 text-sm text-gray-300">
                     <CheckCircle className="w-4 h-4 text-cyber-accent shrink-0 mt-0.5" />
                     {f}

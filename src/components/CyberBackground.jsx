@@ -62,11 +62,11 @@ function Particles() {
   return (
     <group rotation={[0, 0, Math.PI / 5]}>
       {/* Plentiful distinct cyan particles */}
-      <ParticleLayer count={400} color="#00f0ff" size={0.03} speedX={0.04} speedY={0.03} radius={2.0} />
+      <ParticleLayer count={200} color="#00f0ff" size={0.03} speedX={0.04} speedY={0.03} radius={2.0} />
       {/* Larger glowing purple orbs */}
-      <ParticleLayer count={150} color="#b026ff" size={0.07} speedX={0.02} speedY={0.05} radius={1.8} />
+      <ParticleLayer count={75} color="#b026ff" size={0.07} speedX={0.02} speedY={0.05} radius={1.8} />
       {/* Very large bright blue/white glowing focus elements */}
-      <ParticleLayer count={40} color="#40ffff" size={0.15} speedX={0.015} speedY={0.02} radius={1.5} />
+      <ParticleLayer count={20} color="#40ffff" size={0.15} speedX={0.015} speedY={0.02} radius={1.5} />
     </group>
   )
 }
@@ -74,7 +74,7 @@ function Particles() {
 export default function CyberBackground() {
   return (
     <div className="absolute inset-0 z-0" style={{ background: '#07070d' }}>
-      <Canvas camera={{ position: [0, 0, 1], fov: 60 }}>
+      <Canvas camera={{ position: [0, 0, 1], fov: 60 }} dpr={[1, 1.5]} performance={{ min: 0.5 }}>
         <Particles />
       </Canvas>
       {/* Grid overlay */}

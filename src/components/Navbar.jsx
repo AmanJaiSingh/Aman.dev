@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Zap } from 'lucide-react'
+import { useLanguage } from '../context/LanguageContext'
 
 const NAV_LINKS = [
   { path: '/',         label: 'Home' },
@@ -14,6 +15,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const location = useLocation()
+  const { language, toggleLanguage } = useLanguage()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -75,6 +77,14 @@ export default function Navbar() {
                 )}
               </NavLink>
             ))}
+            
+            <button
+              onClick={toggleLanguage}
+              className="ml-2 font-mono text-xs px-3 py-1.5 rounded-full border border-cyber-purple/50 bg-cyber-purple/10 text-cyber-purple hover:bg-cyber-purple hover:text-white transition-all cursor-pointer"
+            >
+              {language === 'en' ? 'EN Switch' : 'HIN Switch'}
+            </button>
+
             <a
               href="/contact"
               className="ml-4 cyber-btn text-xs py-2 px-5"
@@ -83,14 +93,22 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* Mobile hamburger */}
-          <button
-            className="md:hidden text-white p-2"
-            onClick={() => setMenuOpen((p) => !p)}
-            aria-label="Toggle menu"
-          >
-            {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          {/* Mobile flex items */}
+          <div className="flex items-center gap-4 md:hidden">
+            <button
+              onClick={toggleLanguage}
+              className="font-mono text-xs px-3 py-1.5 rounded-full border border-cyber-purple/50 bg-cyber-purple/10 text-cyber-purple hover:bg-cyber-purple hover:text-white transition-all cursor-pointer"
+            >
+              {language === 'en' ? 'EN' : 'HIN'}
+            </button>
+            <button
+              className="text-white p-2"
+              onClick={() => setMenuOpen((p) => !p)}
+              aria-label="Toggle menu"
+            >
+              {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
       </motion.nav>
 

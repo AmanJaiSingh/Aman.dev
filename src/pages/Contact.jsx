@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { Mail, Phone, MapPin, Send, CheckCircle, Code2, Briefcase, MessageCircle } from 'lucide-react'
+import { useLanguage } from '../context/LanguageContext'
 
 const SOCIALS = [
   { icon: Code2,         href: '#',  label: 'GitHub'   },
@@ -17,6 +18,7 @@ const SERVICES_LIST = [
 ]
 
 export default function Contact() {
+  const { language } = useLanguage()
   const ref = useRef(null)
   const inView = useInView(ref, { once: true })
 
@@ -68,19 +70,25 @@ export default function Contact() {
         {/* Header */}
         <div ref={ref} className="mb-16">
           <motion.p initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} className="section-label mb-3">
-            Let's talk
+            {language === 'en' ? "Let's talk" : "Baat Cheet"}
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ delay: 0.1 }}
             className="display-heading text-5xl md:text-6xl mb-4"
           >
-            Get In <span className="neon-text-cyan">Touch</span>
+            {language === 'en' ? (
+              <>Get In <span className="neon-text-cyan">Touch</span></>
+            ) : (
+              <>Milte <span className="neon-text-cyan">Hain</span></>
+            )}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ delay: 0.2 }}
             className="text-gray-400 max-w-lg leading-relaxed"
           >
-            Have a project in mind? Let's discuss how I can help. Fill in the form and I'll get back to you within 24 hours.
+            {language === 'en'
+              ? "Have a project in mind? Let's discuss how I can help. Fill in the form and I'll get back to you within 24 hours."
+              : "Koi project hai dimaag me? Form bhar do, 24 ghante me reply aayega pakka."}
           </motion.p>
         </div>
 
@@ -152,17 +160,21 @@ export default function Contact() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   {/* Name */}
                   <div>
-                    <label className="section-label mb-2 block" htmlFor="name">Your Name</label>
+                    <label className="section-label mb-2 block" htmlFor="name">
+                      {language === 'en' ? 'Your Name' : 'Tumhara Naam'}
+                    </label>
                     <input
                       id="name" name="name" type="text" required
                       value={form.name} onChange={handleChange}
-                      placeholder="Aman Singh"
+                      placeholder={language === 'en' ? "Aman Singh" : "Aman Singh"}
                       className="w-full bg-cyber-darker border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-gray-600 outline-none focus:border-cyber-accent/60 transition-colors"
                     />
                   </div>
                   {/* Email */}
                   <div>
-                    <label className="section-label mb-2 block" htmlFor="email">Email Address</label>
+                    <label className="section-label mb-2 block" htmlFor="email">
+                      {language === 'en' ? 'Email Address' : 'Email Pata'}
+                    </label>
                     <input
                       id="email" name="email" type="email" required
                       value={form.email} onChange={handleChange}
@@ -174,20 +186,26 @@ export default function Contact() {
 
                 {/* Service */}
                 <div>
-                  <label className="section-label mb-2 block" htmlFor="service">Service Needed</label>
+                  <label className="section-label mb-2 block" htmlFor="service">
+                    {language === 'en' ? 'Service Needed' : 'Kya Banana Hai Kaunsa Service'}
+                  </label>
                   <select
                     id="service" name="service"
                     value={form.service} onChange={handleChange}
                     className="w-full bg-cyber-darker border border-white/10 rounded-lg px-4 py-3 text-sm text-white outline-none focus:border-cyber-accent/60 transition-colors"
                   >
-                    <option value="" disabled>Select a service...</option>
+                    <option value="" disabled>
+                      {language === 'en' ? 'Select a service...' : 'Ek service select karo...'}
+                    </option>
                     {SERVICES_LIST.map((s) => <option key={s}>{s}</option>)}
                   </select>
                 </div>
 
                 {/* Budget */}
                 <div>
-                  <label className="section-label mb-2 block" htmlFor="budget">Estimated Budget</label>
+                  <label className="section-label mb-2 block" htmlFor="budget">
+                    {language === 'en' ? 'Estimated Budget' : 'Kitna Kharcha Allowed Hai'}
+                  </label>
                   <input
                     id="budget" name="budget" type="text"
                     value={form.budget} onChange={handleChange}
@@ -198,11 +216,13 @@ export default function Contact() {
 
                 {/* Message */}
                 <div>
-                  <label className="section-label mb-2 block" htmlFor="message">Tell me about your project</label>
+                  <label className="section-label mb-2 block" htmlFor="message">
+                    {language === 'en' ? 'Tell me about your project' : 'Btao kya banana hai'}
+                  </label>
                   <textarea
                     id="message" name="message" rows={5} required
                     value={form.message} onChange={handleChange}
-                    placeholder="Describe what you need..."
+                    placeholder={language === 'en' ? "Describe what you need..." : "Likh do jo bhi idea ho..."}
                     className="w-full bg-cyber-darker border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-gray-600 outline-none focus:border-cyber-accent/60 transition-colors resize-none"
                   />
                 </div>
@@ -215,11 +235,11 @@ export default function Contact() {
                   {sending ? (
                     <>
                       <span className="w-4 h-4 border-2 border-cyber-accent border-t-transparent rounded-full animate-spin" />
-                      Sending...
+                      {language === 'en' ? 'Sending...' : 'Bhej raha hoon...'}
                     </>
                   ) : (
                     <>
-                      <Send className="w-4 h-4" /> Send Message
+                      <Send className="w-4 h-4" /> {language === 'en' ? 'Send Message' : 'Message Bhejo'}
                     </>
                   )}
                 </button>
