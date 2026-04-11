@@ -38,8 +38,7 @@ export default function Contact() {
           Accept: 'application/json',
         },
         body: JSON.stringify({
-          // TODO: Replace with your actual Web3Forms access key
-          access_key: 'YOUR_WEB3FORMS_ACCESS_KEY_HERE',
+          access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY,
           name: form.name,
           email: form.email,
           service: form.service,
