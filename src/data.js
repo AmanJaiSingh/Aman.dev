@@ -20,7 +20,7 @@ export const PROJECTS = [
     tech: ['Next.js', 'MongoDB', 'Stripe', 'Tailwind', 'Node.js'],
     accentColor: '#ff003c',
     accentColor2: '#ffd700',
-    github: '#',
+    github: 'https://github.com/AmanJaiSingh/Moto_parts',
     live: '#',
     featured: true,
   },

@@ -8,20 +8,13 @@ export default function CustomCursor() {
   const cursorX = useMotionValue(-100)
   const cursorY = useMotionValue(-100)
 
-  // Fast spring for main dot (extremely snappy)
-  const x0 = useSpring(cursorX, { damping: 25, stiffness: 700 })
-  const y0 = useSpring(cursorY, { damping: 25, stiffness: 700 })
+  // Main dot exactly tracks the cursor to eliminate perceived lag
+  const x0 = cursorX
+  const y0 = cursorY
 
   // Trailing ring (smooth and delayed)
-  const xRing = useSpring(cursorX, { damping: 15, stiffness: 150, mass: 0.5 })
-  const yRing = useSpring(cursorY, { damping: 15, stiffness: 150, mass: 0.5 })
-
-  // Additional trailing dots for the "trail" effect
-  const x1 = useSpring(cursorX, { damping: 20, stiffness: 200, mass: 0.8 })
-  const y1 = useSpring(cursorY, { damping: 20, stiffness: 200, mass: 0.8 })
-  
-  const x2 = useSpring(cursorX, { damping: 30, stiffness: 150, mass: 1.2 })
-  const y2 = useSpring(cursorY, { damping: 30, stiffness: 150, mass: 1.2 })
+  const xRing = useSpring(cursorX, { damping: 20, stiffness: 100, mass: 0.3 })
+  const yRing = useSpring(cursorY, { damping: 20, stiffness: 100, mass: 0.3 })
 
   useEffect(() => {
     if (isTouchDevice) return
@@ -91,29 +84,13 @@ export default function CustomCursor() {
           translateX: '-50%', translateY: '-50%',
         }}
         animate={{
-          width: isHovering ? 60 : 36, 
-          height: isHovering ? 60 : 36,
+          width: isHovering ? 60 : 40, 
+          height: isHovering ? 60 : 40,
           backgroundColor: isHovering ? 'rgba(176, 38, 255, 0.15)' : 'transparent',
-          border: isHovering ? '1px solid rgba(176, 38, 255, 0.9)' : '1px solid rgba(0, 240, 255, 0.4)',
+          border: isHovering ? '1px solid rgba(176, 38, 255, 0.9)' : '1px solid rgba(0, 240, 255, 0.3)',
         }}
         transition={{ type: 'tween', duration: 0.2 }}
       />
-
-      {/* Trail Dot 1 (Purple) */}
-      {!isHovering && (
-        <motion.div
-          className="fixed top-0 left-0 z-[9998] pointer-events-none rounded-full bg-cyber-purple mix-blend-screen opacity-60"
-          style={{ x: x1, y: y1, translateX: '-50%', translateY: '-50%', width: 5, height: 5 }}
-        />
-      )}
-
-      {/* Trail Dot 2 (Cyan) */}
-      {!isHovering && (
-        <motion.div
-          className="fixed top-0 left-0 z-[9997] pointer-events-none rounded-full bg-cyber-accent mix-blend-screen opacity-30"
-          style={{ x: x2, y: y2, translateX: '-50%', translateY: '-50%', width: 3, height: 3 }}
-        />
-      )}
     </>
   )
 }
