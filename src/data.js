@@ -10,6 +10,7 @@ export const PROJECTS = [
     accentColor2: '#b026ff',
     github: 'https://github.com/AmanJaiSingh/Aman.dev',
     live: '#',
+    image: '/projects/01_Cyberspace_Portfolio.png',
     featured: true,
   },
   {
@@ -22,6 +23,7 @@ export const PROJECTS = [
     accentColor2: '#ffd700',
     github: 'https://github.com/AmanJaiSingh/Moto_parts',
     live: '#',
+    image: '',
     featured: true,
   },
   {
@@ -34,6 +36,7 @@ export const PROJECTS = [
     accentColor2: '#00f0ff',
     github: 'https://github.com/AmanJaiSingh/NexaFlow',
     live: '#',
+    image: '/projects/02_NexaFlow_Normal_SS.png',
     featured: true,
   },
   {
@@ -46,6 +49,7 @@ export const PROJECTS = [
     accentColor2: '#ff003c',
     github: 'https://github.com/AmanJaiSingh/Zenith',
     live: '#',
+    image: '/projects/03_Zenith_Normal_SS.png',
     featured: false,
   },
   {
@@ -58,6 +62,7 @@ export const PROJECTS = [
     accentColor2: '#ffd700',
     github: '#',
     live: '#',
+    image: '',
     featured: false,
   },
   {
@@ -70,6 +75,7 @@ export const PROJECTS = [
     accentColor2: '#ff003c',
     github: '#',
     live: '#',
+    image: '',
     featured: false,
   },
 ]
