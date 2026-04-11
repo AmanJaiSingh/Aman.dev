@@ -8,11 +8,6 @@ export default function CustomCursor() {
   const cursorX = useMotionValue(-100)
   const cursorY = useMotionValue(-100)
 
-  // Use a very tight spring for buttery smooth tracking without lag
-  const springConfig = { damping: 30, stiffness: 500, mass: 0.1 }
-  const x = useSpring(cursorX, springConfig)
-  const y = useSpring(cursorY, springConfig)
-
   useEffect(() => {
     if (isTouchDevice) return
 
@@ -24,7 +19,6 @@ export default function CustomCursor() {
     const manageHover = (e) => {
       const target = e.target
       
-      // Attempt to determine if we are hovering a clickable element
       try {
         const isClickable = 
           target.tagName?.toLowerCase() === 'a' ||
@@ -48,37 +42,53 @@ export default function CustomCursor() {
     }
   }, [cursorX, cursorY, isTouchDevice])
 
-  // Don't render on mobile/touch devices
   if (isTouchDevice) return null
 
   return (
     <>
       <style>{`
-        /* Hide default cursor on desktop */
         @media (pointer: fine) {
-          * {
-            cursor: none !important;
-          }
+          * { cursor: none !important; }
         }
       `}</style>
 
-      {/* Main Single Cursor - Agency Style */}
+      {/* Container tracking raw mouse coords = ZERO lag */}
       <motion.div
-        className="fixed top-0 left-0 z-[10000] pointer-events-none rounded-full flex items-center justify-center font-mono text-[10px] font-bold tracking-widest uppercase transition-colors"
+        className="fixed top-0 left-0 z-[10000] pointer-events-none flex items-center justify-center mix-blend-screen"
         style={{
-          x: x, y: y, 
+          x: cursorX, y: cursorY, 
           translateX: '-50%', translateY: '-50%',
-          backgroundColor: isHovering ? 'transparent' : 'white',
-          mixBlendMode: isHovering ? 'normal' : 'difference',
-          border: isHovering ? '1px solid rgba(0, 240, 255, 0.5)' : 'none',
-          backdropFilter: isHovering ? 'blur(4px)' : 'none'
         }}
-        animate={{
-          width: isHovering ? 70 : 16, 
-          height: isHovering ? 70 : 16,
-        }}
-        transition={{ type: 'spring', stiffness: 300, damping: 25 }}
       >
+        {/* Core Dot (disappears on hover) */}
+        <motion.div
+          animate={{
+            width: isHovering ? 0 : 8,
+            height: isHovering ? 0 : 8,
+            opacity: isHovering ? 0 : 1,
+          }}
+          className="bg-cyber-accent rounded-full absolute"
+          style={{ boxShadow: '0 0 10px #00f0ff, 0 0 20px #00f0ff' }}
+          transition={{ duration: 0.15 }}
+        />
+        
+        {/* Catchy Outer Shape: Diamond transforms to Scope */}
+        <motion.div
+          className="absolute border border-cyber-accent"
+          animate={{
+            width: isHovering ? 50 : 20,
+            height: isHovering ? 50 : 20,
+            rotate: isHovering ? 90 : 45,
+            borderRadius: isHovering ? '50%' : '4px',
+            backgroundColor: isHovering ? 'rgba(0, 240, 255, 0.1)' : 'transparent',
+            boxShadow: isHovering ? '0 0 20px rgba(0, 240, 255, 0.4) inset, 0 0 20px rgba(0, 240, 255, 0.4)' : 'none',
+          }}
+          transition={{
+            type: 'spring',
+            stiffness: 400,
+            damping: 25,
+          }}
+        />
       </motion.div>
     </>
   )
