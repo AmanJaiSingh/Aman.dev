@@ -26,11 +26,40 @@ export default function Contact() {
 
   const handleChange = (e) => setForm((p) => ({ ...p, [e.target.name]: e.target.value }))
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     setSending(true)
-    // Simulate send
-    setTimeout(() => { setSending(false); setSent(true) }, 1800)
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          // TODO: Replace with your actual Web3Forms access key
+          access_key: 'YOUR_WEB3FORMS_ACCESS_KEY_HERE',
+          name: form.name,
+          email: form.email,
+          service: form.service,
+          budget: form.budget,
+          message: form.message,
+          subject: 'New Contact Form Submission from Cyberspace Portfolio',
+        }),
+      })
+      const result = await response.json()
+      if (result.success) {
+        setSent(true)
+      } else {
+        alert('Something went wrong. Please try again.')
+      }
+    } catch (error) {
+      console.error(error)
+      alert('Something went wrong. Please try again.')
+    } finally {
+      setSending(false)
+    }
   }
 
   return (
