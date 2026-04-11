@@ -8,13 +8,10 @@ export default function CustomCursor() {
   const cursorX = useMotionValue(-100)
   const cursorY = useMotionValue(-100)
 
-  // Main dot exactly tracks the cursor to eliminate perceived lag
-  const x0 = cursorX
-  const y0 = cursorY
-
-  // Trailing ring (smooth and delayed)
-  const xRing = useSpring(cursorX, { damping: 20, stiffness: 100, mass: 0.3 })
-  const yRing = useSpring(cursorY, { damping: 20, stiffness: 100, mass: 0.3 })
+  // Use a very tight spring for buttery smooth tracking without lag
+  const springConfig = { damping: 30, stiffness: 500, mass: 0.1 }
+  const x = useSpring(cursorX, springConfig)
+  const y = useSpring(cursorY, springConfig)
 
   useEffect(() => {
     if (isTouchDevice) return
@@ -65,32 +62,24 @@ export default function CustomCursor() {
         }
       `}</style>
 
-      {/* Main Dot */}
+      {/* Main Single Cursor - Agency Style */}
       <motion.div
-        className="fixed top-0 left-0 z-[10000] pointer-events-none rounded-full bg-cyber-accent mix-blend-screen"
+        className="fixed top-0 left-0 z-[10000] pointer-events-none rounded-full flex items-center justify-center font-mono text-[10px] font-bold tracking-widest uppercase transition-colors"
         style={{
-          x: x0, y: y0, 
+          x: x, y: y, 
           translateX: '-50%', translateY: '-50%',
-          width: isHovering ? 4 : 8, height: isHovering ? 4 : 8,
-          boxShadow: '0 0 10px #00f0ff, 0 0 20px #00f0ff',
-        }}
-      />
-      
-      {/* Trailing Ring */}
-      <motion.div
-        className="fixed top-0 left-0 z-[9999] pointer-events-none rounded-full mix-blend-screen"
-        style={{
-          x: xRing, y: yRing, 
-          translateX: '-50%', translateY: '-50%',
+          backgroundColor: isHovering ? 'transparent' : 'white',
+          mixBlendMode: isHovering ? 'normal' : 'difference',
+          border: isHovering ? '1px solid rgba(0, 240, 255, 0.5)' : 'none',
+          backdropFilter: isHovering ? 'blur(4px)' : 'none'
         }}
         animate={{
-          width: isHovering ? 60 : 40, 
-          height: isHovering ? 60 : 40,
-          backgroundColor: isHovering ? 'rgba(176, 38, 255, 0.15)' : 'transparent',
-          border: isHovering ? '1px solid rgba(176, 38, 255, 0.9)' : '1px solid rgba(0, 240, 255, 0.3)',
+          width: isHovering ? 70 : 16, 
+          height: isHovering ? 70 : 16,
         }}
-        transition={{ type: 'tween', duration: 0.2 }}
-      />
+        transition={{ type: 'spring', stiffness: 300, damping: 25 }}
+      >
+      </motion.div>
     </>
   )
 }
